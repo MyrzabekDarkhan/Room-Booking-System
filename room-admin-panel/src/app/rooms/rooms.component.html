@@ -1,0 +1,23 @@
+<a nz-button nzType="primary" routerLink="/home/room">Create room</a>
+<nz-table #table [nzData]="rooms">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Capacity</th>
+
+
+     <th>Action</th> 
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of table.data">
+      <td>{{ room.id }}</td>
+      <td>{{ room.name }}</td>
+      <td>{{ room.capacity }}</td>
+  
+
+
+
+         <td><a [routerLink]="['/home', 'room', room.id]">Edit</a></td>  
+    </tr>
+  </tbody>
+</nz-table>

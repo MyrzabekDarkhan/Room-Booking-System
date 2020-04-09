@@ -1,0 +1,24 @@
+<form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-input-group>
+        <nz-form-control nzErrorTip="Please enter room name">
+          <input
+            type="text"
+            nz-input
+            formControlName="name"
+            placeholder="Room name"
+          />
+        </nz-form-control>
+        <nz-form-control nzErrorTip="Please enter capacity of room">
+            <input
+            type="text"
+            nz-input
+            formControlName="capacity"
+            placeholder="Capacity"
+          />
+          </nz-form-control>
+      </nz-input-group>
+   
+      <button nz-button nzType="primary" [appLoading]="isLoading" >Save</button>
+    </nz-form-item>
+  </form>

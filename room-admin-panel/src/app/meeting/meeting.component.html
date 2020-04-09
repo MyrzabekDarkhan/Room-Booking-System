@@ -1,0 +1,61 @@
+<form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-input-group>
+        <nz-form-control nzErrorTip="Please enter creator id">
+            <input
+              type="text"
+              nz-input
+              formControlName="creatorId"
+              placeholder="creator id"
+            />
+          </nz-form-control>
+          <nz-form-control nzErrorTip="Please enter room id">
+            <input
+              type="text"
+              nz-input
+              formControlName="roomId"
+              placeholder="room id"
+            />
+          </nz-form-control>
+        <nz-form-control nzErrorTip="Please enter meeting name">
+          <input
+            type="text"
+            nz-input
+            formControlName="meetingName"
+            placeholder="Meeting name"
+          />
+        </nz-form-control>
+
+        <nz-date-picker 
+         type="datetime" 
+          nzErrorTip="Please enter start time of meeting"
+          nzShowTime
+          nzFormat="yyyy-MM-dd HH:mm:ss"
+        
+        formControlName="start_time"
+        placeholder="start time">
+         </nz-date-picker>
+        
+         <nz-date-picker 
+          type="datetime"
+           nzErrorTip="Please enter end time of meeting"
+           nzShowTime
+           nzFormat="yyyy-MM-dd HH:mm:ss"
+         formControlName="end_time"
+         placeholder="end time">
+          </nz-date-picker>
+   
+      
+          <nz-form-control nzErrorTip="Please enter room name">
+            <input
+              type="text"
+              nz-input
+              formControlName="roomName"
+              placeholder="Room name"
+            />
+          </nz-form-control>
+      </nz-input-group>
+   
+      <button nz-button nzType="primary" [appLoading]="isLoading" >Save</button>
+    </nz-form-item>
+  </form>
