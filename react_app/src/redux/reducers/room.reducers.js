@@ -1,0 +1,18 @@
+const initialState = {
+    roomsData: []
+}
+
+export default function(state= initialState, action) {
+    // console.log(action.payload.posts)
+    switch(action.type) {
+        case 'SET_ROOMS': 
+            return {
+                ...state,
+                roomsData: action.payload,
+            }
+ 
+            
+        default:
+            return state;
+    }
+}

@@ -4,6 +4,7 @@ import { Repository } from "typeorm";
 import { User } from "src/models/User";
 
 
+
 @Injectable()
 export class UserService{
     constructor(
@@ -21,6 +22,7 @@ export class UserService{
         }
 
         createUser(user:User){
+            console.log(user);
             return this.userRepository.save(user);
         }
 
@@ -31,8 +33,8 @@ export class UserService{
         deleteUser(id: number) {
             return this.userRepository.delete(id);
         }
-
-
-
+        getOne( criteria={}) {
+            return this.userRepository.findOne(criteria);
+        }
 
 }

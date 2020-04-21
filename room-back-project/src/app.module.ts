@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
+import { MulterModule } from '@nestjs/platform-express';
 import { User } from './models/User';
-
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { Meeting } from './models/Meeting';
 import { MeetingRoom } from './models/MeetingRoom';
@@ -22,8 +22,13 @@ import { ControllerModule } from './controllers/controllers.module';
       entities:[User,Meeting,MeetingRoom,Participation],
       synchronize:false,
     }),
-    ControllerModule
-  
+    ControllerModule,
+    MulterModule.register({
+      dest: './uploads',
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+    }),
   ],
   controllers: [
     AppController,

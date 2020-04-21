@@ -12,25 +12,27 @@ import { MeetingRoomController } from "./meetingRoom.controller";
 import { MeetingRoomService } from "./meetingRoom.service";
 import { ParticipationController } from "./participation.controller";
 import { ParticipationService } from "./participation.service";
+import { UploaderController } from "./uploader.controller";
+
 
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([User, Meeting, MeetingRoom,Participation])
+        TypeOrmModule.forFeature([User, Meeting,MeetingRoom,Participation])
     ],
     exports: [TypeOrmModule],
     controllers: [
         UserController,
-        MeetingController,
+       MeetingController,
         MeetingRoomController,
-        ParticipationController
-      
+        ParticipationController,
+        UploaderController,
     ],
     providers: [
       UserService,
-      MeetingService,
+     MeetingService,
       MeetingRoomService,
-      ParticipationService
+      ParticipationService,
     ],
 })
     export class   ControllerModule{

@@ -6,6 +6,7 @@ import { RoomsService } from '../shared/rooms.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { UploadFile } from 'ng-zorro-antd';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class RoomComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       capacity: new FormControl('', Validators.required),
+      imageUrl: new FormControl(''),
     });
 
     this.route.paramMap
@@ -56,6 +58,9 @@ export class RoomComponent implements OnInit {
       }
     });
   }
+
+
+  
 
   onSubmit() {
     console.log('hello')
@@ -97,5 +102,32 @@ export class RoomComponent implements OnInit {
         }
       });
   }
+
+  deleteRooms(){
+    this.roomsService.delete(this.room.id);
+    
+}
+
+  
+
+
+  handleChange(info: { file: UploadFile }): void {
+    switch (info.file.status) {
+      case 'uploading':
+        this.loading = true;
+        break;
+      case 'done':
+        // Get this url from response in real world.
+        console.log(info.file);
+        this.loading = false;
+        this.form.get('imageUrl').setValue(info.file.response.filename)
+        break;
+      case 'error':
+        this.loading = false;
+        break;
+    }
+  }
+
+  
 
 }

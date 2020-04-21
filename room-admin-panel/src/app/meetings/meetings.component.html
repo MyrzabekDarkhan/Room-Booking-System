@@ -1,11 +1,11 @@
-<a nz-button nzType="primary" routerLink="/home/meeting">Create meeting</a>
+
 <nz-table #table [nzData]="meetings">
   <thead>
     <th>ID</th>
     <th>Description</th>
     <th>Start time</th>
     <th>End time</th>
-    <th>Room name</th>
+    <th>Room id</th>
 
 
 
@@ -13,15 +13,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let meeting of table.data">
-      <td>{{ meeting.id }}</td>
-      <td>{{ meeting.meetingName }}</td>
-      <td>{{ meeting.start_time }}</td>
-      <td>{{ meeting.end_time }}</td>
-       <td>{{ meeting.roomName }}</td> 
+      <td>{{ meeting.Id }}</td>
+      <td>{{ meeting.Subject }}</td>
+      <td>{{ meeting.StartTime }}</td>
+      <td>{{ meeting.EndTime }}</td>
+       <td>{{ meeting.roomId }}</td> 
 
 
-
-       <td><a [routerLink]="['/home', 'meeting', meeting.id]">Edit</a></td> 
     </tr>
   </tbody>
 </nz-table>

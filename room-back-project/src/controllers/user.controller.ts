@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Post, Body, Put, Delete } from "@nestjs/common";
+import { Controller, Get, Param, Post, Body, Put, Delete, UsePipes, ValidationPipe } from "@nestjs/common";
 import {UserService} from "./user.service";
+
 
 
 
@@ -7,7 +8,7 @@ import {UserService} from "./user.service";
 export class UserController{
 
     constructor(   private readonly userService: UserService,
-        //private readonly questionnairiesService: QuestionnaireService,
+    
         ){
 
     }
@@ -27,7 +28,9 @@ export class UserController{
 
    @Post()
    createUser(@Body() user){
+       console.log(user);
         return this.userService.createUser(user);
+        
    }
 
 
@@ -41,9 +44,10 @@ export class UserController{
         return this.userService.deleteUser(id); 
     }
 
-
-
-
+    @Post('auth')
+    auth(@Body() data){
+        return this.userService.getOne({where: {name:data.name ,password:data.password}});
+    }
 
 
 }

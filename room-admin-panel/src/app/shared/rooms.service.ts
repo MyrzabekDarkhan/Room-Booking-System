@@ -27,4 +27,8 @@ export class RoomsService {
     return this.httpClient.put<any>(`${this.host}/rooms/${room.id}`, room);
   }
 
+  delete(id: number) {
+    return this.httpClient.delete<any>(`${this.host}/rooms/${id}`);
+  }
+
 }

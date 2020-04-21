@@ -1,4 +1,3 @@
-
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Meeting} from './Meeting';
 import { Participation } from './Participation';
@@ -12,7 +11,10 @@ export class User{
     @Column()
     name:string;
 
-    @OneToMany(type=>Meeting,meeting=>meeting.creatorId)
+    @Column()
+    password:string;
+
+    @OneToMany(type=>Meeting,meeting=>meeting.Id)
     meetings: Promise<Meeting[]>
 
     @OneToMany(type => Participation,participation => participation.meetingId)

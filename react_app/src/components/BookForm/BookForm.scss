@@ -1,0 +1,35 @@
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+.meeting-form {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+	margin-top: 100px;
+}
+
+button.btn {
+    background-color: white;
+    border: 1px solid #cccccc;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0;
+    background-image: linear-gradient(to right,  #26E089, #00B297);
+    transition: .2s ease;
+    
+    &:hover {
+      transform: translateY(-2px) scaleX(1.05) scaleY(1.05);
+      box-shadow: 0 0 10px rgba( #26E089, .4);
+    }
+  }

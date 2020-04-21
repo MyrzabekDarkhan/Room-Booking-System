@@ -1,0 +1,69 @@
+{
+  "name": "room-booking",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
+    "@syncfusion/ej2-base": "^17.4.51",
+    "@syncfusion/ej2-data": "^17.4.51",
+    "@syncfusion/ej2-react-buttons": "^18.1.42",
+    "@syncfusion/ej2-react-schedule": "^17.4.55",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.1.0",
+    "babel-core": "^6.26.3",
+    "bootstrap": "^4.4.1",
+    "data-source": "^5.3.2",
+    "html-react-parser": "0.0.4",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "node-sass": "^4.13.1",
+    "particles-bg": "^2.4.7",
+    "react": "^16.13.1",
+    "react-alert": "^7.0.0",
+    "react-big-calendar": "^0.24.1",
+    "react-bootstrap": "^1.0.0",
+    "react-datasource": "^1.0.0",
+    "react-datepicker": "^2.14.1",
+    "react-dom": "^16.13.1",
+    "react-grid-system": "^6.3.0",
+    "react-image": "^2.4.0",
+    "react-landing-page": "^2.0.2",
+    "react-modal": "^3.11.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "ui-kit": "^0.19.1",
+    "use-modal-hook": "^1.0.18"
+  },
+  "scripts": {
+    "start": "PORT=8000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/reactstrap": "^8.4.2"
+  }
+}

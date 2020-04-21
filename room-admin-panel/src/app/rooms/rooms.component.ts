@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoomsService } from '../shared/rooms.service';
 import {Room} from '../shared/room.types'
 
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -26,4 +27,7 @@ export class RoomsComponent implements OnInit {
   
 
 }
+
+
+
 }

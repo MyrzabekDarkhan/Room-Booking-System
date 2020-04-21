@@ -7,8 +7,6 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MeetingsComponent } from './meetings/meetings.component';
-import { MeetingComponent } from './meeting/meeting.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -16,6 +14,8 @@ import en from '@angular/common/locales/en';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './room/room.component';
 import { LoadingDirective } from './shared/loading.directive';
+
+import { MeetingsComponent } from './meetings/meetings.component';
 
 
 registerLocaleData(en);
@@ -26,11 +26,10 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     HomeComponent,
-    MeetingsComponent,
-    MeetingComponent,
     RoomsComponent,
     RoomComponent,
     LoadingDirective,
+    MeetingsComponent
   ],
   imports: [
     BrowserModule,

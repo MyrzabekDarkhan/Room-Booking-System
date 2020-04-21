@@ -13,7 +13,10 @@ export class MeetingRoom{
 
     @Column()
     capacity:number;
+   
+    @Column()
+    imageUrl: string;
 
-    @OneToMany(type => Meeting , meeting=>meeting.id)
+    @OneToMany(type => Meeting , meeting=>meeting.Id)
     user:Promise<User[]>;
 }

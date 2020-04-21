@@ -27,11 +27,16 @@ export class MeetingService{
             return this.meetingRepository.findOne(id);
         }
 
+        getByRoomId(criteria = {}){
+           // return this.meetingRepository.findOne(id);
+            return this.meetingRepository.find(criteria)
+        }
+
         addMeeting(meeting:Meeting){
             return this.meetingRepository.save(meeting);
         }
 
-        updateMeeting(id: number, data: Partial<User>) {
+        updateMeeting(id: number, data: Partial<Meeting>) {
             return this.meetingRepository.update(id, data);
         }
     

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MeetingsComponent } from './meetings/meetings.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './room/room.component';
-import { MeetingComponent } from './meeting/meeting.component';
+import { MeetingsComponent } from './meetings/meetings.component';
+
+
 
 const routes: Routes = [
   {
@@ -14,18 +15,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
          children: [
-          {
-             path: 'meetings',
-             component: MeetingsComponent
-         },
-         {
-          path: 'meeting',
-          component: MeetingComponent
-        },
-        {
-          path: 'meeting/:id',
-          component: MeetingComponent
-        },
+    
           {
            path: 'rooms',
              component: RoomsComponent
@@ -38,6 +28,12 @@ const routes: Routes = [
             path: 'room/:id',
             component: RoomComponent
           },
+          {
+          path: 'meetings',
+          component: MeetingsComponent
+         },
+        
+     
     
         
     ]

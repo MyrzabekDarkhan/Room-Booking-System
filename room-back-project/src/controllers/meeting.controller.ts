@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Post, Body, Put, Delete } from "@nestjs/common";
 import { MeetingService } from "./meeting.service";
 import { MeetingRoomService } from "./meetingRoom.service";
-import { createQueryBuilder } from "typeorm";
+
 
 
 
@@ -28,15 +28,24 @@ export class MeetingController{
 
    }
 
+   @Get(':id/meetings')
+   getMeetings(@Param('id') id:number){
+       return this.meetingServie.getByRoomId({where: {roomId:id}});
+
+   }
+
    @Post()
    createMeeting(@Body() meeting){
+       console.log(meeting);
         return this.meetingServie.addMeeting(meeting);
    }
 
 
    @Put(':id')
     editMeeting(@Param('id') id: number, @Body() data) {
+        //console.log(data);
         return this.meetingServie.updateMeeting(id, data);
+       
     }
 
     @Delete(':id')

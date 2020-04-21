@@ -9,28 +9,26 @@ import { MeetingRoom } from './MeetingRoom';
 export class Meeting{
    
     @PrimaryGeneratedColumn()
-    id:number;
+    Id:string;
 
     @Column()
-    meetingName:string;
-
-    @Column()
-    creatorId:number;
+    Subject:string;
 
     @Column()
     roomId:number;
+    
+     @Column()
+     userId:number;
 
-    @CreateDateColumn()
-    start_time:Date;
+   @Column({type:"datetime"})
+    StartTime:string;
 
-    @CreateDateColumn()
-    end_time:Date;
+    @Column({type:"datetime"})
+    EndTime:string;
+   
+    @Column({ type: 'boolean', default: false })
+    IsReadonly: boolean;
 
-    @Column()
-    roomName:string;
-
-    @Column({type:'boolean',default:0})
-    isCanceled:Boolean;
 
     @ManyToOne(type=>User,user=>user.id)
     user:User;
