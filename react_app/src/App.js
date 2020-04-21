@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch,Router } from 'react-router-dom';
+import history from './history';
 
 import { connect } from 'react-redux';
 import { setRooms } from './redux/actions/room.actions';
@@ -10,82 +11,92 @@ import { getMeetings } from './redux/effects/meeting.effects';
 import { resetMeetings } from './redux/actions/meeting.actions';
 
 import RoomsList from './components/Room/RoomsList';
-import Login from './components/Login/Login';
+
 import Home from './components/Home/Home';
-import Register from './components/Login/Register';
 import Calendar from './components/Calendar/Calendar';
 import Modal from 'react-modal';
-import BookForm from './components/BookForm/BookForm';
+
 import './index';
 import Main from './components/Login/Main';
+import { setUsers } from './redux/actions/user.actions';
+import { getUsers } from './redux/effects/user.effects';
 
-const App = ({ roomsData, getRooms, meetingsData, getMeetings,resetMeetings }) => {
-
+const App = ({
+  roomsData,
+  getRooms,
+  meetingsData,
+  getMeetings,
+  resetMeetings,
+  getUsers,
+  usersData,
+}) => {
   const [id, setid] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [secondModalIsOpen, secondSetModalIsOpen] = useState(false);
 
   useEffect(() => {
     getRooms();
-      getMeetings(id);
-      
-
+    getMeetings(id);
+    getUsers();
   }, [id]);
 
+  const getData = (id) => {
+    const count = parseInt(id);
 
+    return count;
+  };
 
-   const getData = id => {
-  //   console.log(id+'clicked id')
-  //   // const save = id
-     const count = parseInt(id);
-  //   //console.log(count);
-  //    //getMeetings(count);
-  return count;
-   
-   };
-
-  const activeUser = 2;
-
-
-
-  
-
+  //const activeUser = 3;
 
   return (
     <BrowserRouter>
+    <Router history={history}>
       <Switch>
         <Route path="/login" component={Main} />
-      
-        <Route path="/rooms">
-          
-            <RoomsList  setid={setid} items={roomsData} setModalIsOpen={setModalIsOpen} sendData={getData} />
-            <Modal isOpen={modalIsOpen} ariaHideApp={false}>
-            <button
-            className="btnClose btn--block room__btn"
-            onClick={() => {setModalIsOpen(false) ; resetMeetings()}}
-            >Close Calendar </button>
-              <Calendar meetingsData={meetingsData} id={id} activeUser={activeUser} />
-            
 
-    
-            </Modal>
+        <Route path="/rooms">
+          <RoomsList
         
+            setid={setid}
+            items={roomsData}
+            setModalIsOpen={setModalIsOpen}
+            sendData={getData}
+          />
+          <Modal isOpen={modalIsOpen} ariaHideApp={false}>
+            <button
+              className="btnClose btn--block room__btn"
+              onClick={() => {
+                setModalIsOpen(false);
+                resetMeetings();
+              }}
+            >
+              Close Calendar{' '}
+            </button>
+            <Calendar meetingsData={meetingsData} id={id} />
+          </Modal>
         </Route>
 
         <Route path="/" component={Home}>
-           <Home>
-
-           </Home>
+          <Home></Home>
         </Route>
-
       </Switch>
+      </Router>
     </BrowserRouter>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   roomsData: state.rooms.roomsData,
   meetingsData: state.meetings.meetingsData,
+  usersData: state.users.usersData,
 });
 
-export default connect(mapStateToProps, { setRooms, getRooms, getMeetings, setMeetings,resetMeetings })(App);
+export default connect(mapStateToProps, {
+  setRooms,
+  getRooms,
+  getMeetings,
+  setMeetings,
+  resetMeetings,
+  setUsers,
+  getUsers,
+})(App);
