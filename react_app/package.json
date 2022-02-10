@@ -21,7 +21,7 @@
     "html-react-parser": "0.0.4",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "particles-bg": "^2.4.7",
     "react": "^16.13.1",
     "react-alert": "^7.0.0",
